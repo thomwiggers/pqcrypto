@@ -3,7 +3,7 @@
 //! These bindings use the vec version from [PQClean][pqc]
 //!
 //! # Example
-//! ```
+//! ```no_run
 //! use pqcrypto_classicmceliece::mceliece8192128f::*;
 //! let (pk, sk) = keypair();
 //! let (ss1, ct) = encapsulate(&pk);
@@ -23,6 +23,13 @@ macro_rules! simple_struct {
     ($type: ident, $size: expr) => {
         #[derive(Clone, Copy)]
         pub struct $type([u8; $size]);
+
+        impl AsRef<[u8]> for $type {
+            type Target = [u8];
+            fn as_ref(&self) -> &Self::Target {
+                self.0.as_ref()
+            }
+        }
 
         impl $type {
             /// Generates an uninitialized object

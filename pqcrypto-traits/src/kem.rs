@@ -7,6 +7,9 @@ pub trait PublicKey {
     fn from_bytes(bytes: &[u8]) -> Result<Self>
     where
         Self: Sized + Clone;
+    fn as_ref(&self) -> &[u8] {
+        self.as_bytes()
+    }
 }
 
 /// A secret key for a KEM
@@ -15,6 +18,9 @@ pub trait SecretKey {
     fn from_bytes(bytes: &[u8]) -> Result<Self>
     where
         Self: Sized + Clone;
+    fn as_ref(&self) -> &[u8] {
+        self.as_bytes()
+    }
 }
 
 /// The ciphertext to be sent to the other party to decapsulate.
@@ -23,6 +29,9 @@ pub trait Ciphertext {
     fn from_bytes(bytes: &[u8]) -> Result<Self>
     where
         Self: Sized + Clone + Copy;
+    fn as_ref(&self) -> &[u8] {
+        self.as_bytes()
+    }
 }
 
 /// The shared secret that should be agreed on.
@@ -31,4 +40,7 @@ pub trait SharedSecret {
     fn from_bytes(bytes: &[u8]) -> Result<Self>
     where
         Self: Sized + Clone + Copy;
+    fn as_ref(&self) -> &[u8] {
+        self.as_bytes()
+    }
 }
