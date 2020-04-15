@@ -6,6 +6,7 @@ use std::path::Path;
 fn main() {
     let common_dir = Path::new("pqclean/common");
     let common_files = vec![
+        common_dir.join("nistseedexpander.c"),
         common_dir.join("fips202.c"),
         common_dir.join("aes.c"),
         common_dir.join("sha2.c"),

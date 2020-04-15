@@ -15,6 +15,7 @@ Rust-friendly interface, alternative implementations are exposed as ``ffi``
 methods only.
 
  * ``falcon-512``
+    * ``avx2`` (if supported)
     * ``clean`` (default)
  * ``falcon-1024``
     * ``clean`` (default)

@@ -23,6 +23,7 @@ methods only.
  * ``rainbowIa-classic``
     * ``clean`` (default)
  * ``rainbowIa-cyclic``
+    * ``avx2`` (if supported)
     * ``clean`` (default)
  * ``rainbowIa-cyclic-compressed``
     * ``clean`` (default)

@@ -15,6 +15,7 @@ Rust-friendly interface, alternative implementations are exposed as ``ffi``
 methods only.
 
  * ``ntruhps2048509``
+    * ``avx2`` (if supported)
     * ``clean`` (default)
  * ``ntruhps2048677``
     * ``clean`` (default)

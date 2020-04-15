@@ -64,6 +64,7 @@ kems:
     schemes:
       - name: ntruhps2048509
         implementation: clean
+        avx2_implementation: avx2
       - name: ntruhps2048677
         implementation: clean
       - name: ntruhps4096821
@@ -135,37 +136,37 @@ kems:
       - name: mceliece6688128
         doctest: no
         implementation: vec
-        #avx2_implementation: avx
+        avx2_implementation: avx
         alt_implementations:
           - clean
       - name: mceliece6688128f
         doctest: no
         implementation: vec
-        #avx2_implementation: avx
+        avx2_implementation: avx
         alt_implementations:
           - clean
       - name: mceliece6960119
         doctest: no
         implementation: vec
-        #avx2_implementation: avx
+        avx2_implementation: avx
         alt_implementations:
           - clean
       - name: mceliece6960119f
         doctest: no
         implementation: vec
-        #avx2_implementation: avx
+        avx2_implementation: avx
         alt_implementations:
           - clean
       - name: mceliece8192128
         doctest: no
         implementation: vec
-        #avx2_implementation: avx
+        avx2_implementation: avx
         alt_implementations:
           - clean
       - name: mceliece8192128f
         doctest: no
         implementation: vec
-        #avx2_implementation: avx
+        avx2_implementation: avx
         alt_implementations:
           - clean
   newhope:
@@ -227,6 +228,7 @@ signs:
     schemes:
       - name: falcon-512
         implementation: clean
+        avx2_implementation: avx2
       - name: falcon-1024
         implementation: clean
   qtesla:
@@ -252,6 +254,7 @@ signs:
         implementation: clean
       - name: rainbowIa-cyclic
         implementation: clean
+        avx2_implementation: avx2
       - name: rainbowIa-cyclic-compressed
         implementation: clean
       - name: rainbowVc-classic
