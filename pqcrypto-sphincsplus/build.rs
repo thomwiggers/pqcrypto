@@ -16,6 +16,7 @@ fn main() {
 
     cc::Build::new()
         .flag("-std=c99")
+        .flag("-march=native")
         .include("pqclean/common")
         .files(common_files.into_iter())
         .compile("pqclean_common");
@@ -26,6 +27,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -42,6 +44,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -55,12 +58,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-haraka-128s-simple_aesni");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -68,6 +65,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -84,6 +82,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -100,6 +99,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -113,12 +113,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-haraka-128f-simple_aesni");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -126,6 +120,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -142,6 +137,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -155,12 +151,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-haraka-128f-robust_aesni");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -168,6 +158,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -184,6 +175,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -197,12 +189,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-haraka-192s-simple_aesni");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -210,6 +196,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -226,6 +213,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -239,12 +227,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-haraka-192s-robust_aesni");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -252,6 +234,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -268,6 +251,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -281,12 +265,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-haraka-192f-simple_aesni");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -294,6 +272,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -310,6 +289,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -323,12 +303,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-haraka-192f-robust_aesni");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -336,6 +310,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -352,6 +327,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -365,12 +341,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-haraka-256s-simple_aesni");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -378,6 +348,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -394,6 +365,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -407,12 +379,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-haraka-256s-robust_aesni");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -420,6 +386,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -436,6 +403,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -449,12 +417,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-haraka-256f-simple_aesni");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -462,6 +424,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -478,6 +441,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -491,12 +455,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-haraka-256f-robust_aesni");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -504,6 +462,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -520,6 +479,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -533,12 +493,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-shake256-128s-simple_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -546,6 +500,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -562,6 +517,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -575,12 +531,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-shake256-128s-robust_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -588,6 +538,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -604,6 +555,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -617,12 +569,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-shake256-128f-simple_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -630,6 +576,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -646,6 +593,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -659,12 +607,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-shake256-128f-robust_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -672,6 +614,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -688,6 +631,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -701,12 +645,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-shake256-192s-simple_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -714,6 +652,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -730,6 +669,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -743,12 +683,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-shake256-192s-robust_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -756,6 +690,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -772,6 +707,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -785,12 +721,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-shake256-192f-simple_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -798,6 +728,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -814,6 +745,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -830,6 +762,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -843,12 +776,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-shake256-256s-simple_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -856,6 +783,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -872,6 +800,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -885,12 +814,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-shake256-256s-robust_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -898,6 +821,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -914,6 +838,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -927,12 +852,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-shake256-256f-simple_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -940,6 +859,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -956,6 +876,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -969,12 +890,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-shake256-256f-robust_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -982,6 +897,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -998,6 +914,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -1011,12 +928,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-sha256-128s-simple_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -1024,6 +935,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -1040,6 +952,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -1053,12 +966,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-sha256-128s-robust_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -1066,6 +973,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -1082,6 +990,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -1095,12 +1004,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-sha256-128f-simple_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -1108,6 +1011,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -1124,6 +1028,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -1137,12 +1042,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-sha256-128f-robust_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -1150,6 +1049,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -1166,6 +1066,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -1179,12 +1080,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-sha256-192s-simple_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -1192,6 +1087,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -1208,6 +1104,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -1221,12 +1118,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-sha256-192s-robust_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -1234,6 +1125,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -1250,6 +1142,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -1263,12 +1156,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-sha256-192f-simple_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -1276,6 +1163,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -1292,6 +1180,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -1305,12 +1194,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-sha256-192f-robust_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -1318,6 +1201,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -1334,6 +1218,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -1347,12 +1232,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-sha256-256s-simple_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -1360,6 +1239,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -1376,6 +1256,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -1389,12 +1270,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-sha256-256s-robust_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -1402,6 +1277,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -1418,6 +1294,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -1431,12 +1308,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-sha256-256f-simple_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -1444,6 +1315,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -1460,6 +1332,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -1473,12 +1346,21 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("sphincs-sha256-256f-robust_avx2");
+    }
 
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
+    // keccak lib
+    #[cfg(all(not(disable_avx2), target_arch = "x86_64"))]
+    {
+        cc::Build::new()
+            .flag("-std=c99")
+            .flag("-march=native")
+            .flag("-mavx2")
+            .file(
+                common_dir
+                    .join("keccak4x")
+                    .join("KeccakP-1600-times4-SIMD256.c"),
+            )
+            .compile("keccak4x");
     }
 
     // Print enableing flag for AVX2 implementation

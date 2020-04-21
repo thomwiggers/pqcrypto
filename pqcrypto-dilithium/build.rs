@@ -16,6 +16,7 @@ fn main() {
 
     cc::Build::new()
         .flag("-std=c99")
+        .flag("-march=native")
         .include("pqclean/common")
         .files(common_files.into_iter())
         .compile("pqclean_common");
@@ -26,6 +27,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -42,6 +44,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -55,12 +58,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("dilithium2_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -68,6 +65,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -84,6 +82,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -97,12 +96,6 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("dilithium3_avx2");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -110,6 +103,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -126,6 +120,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -139,12 +134,21 @@ fn main() {
                     .map(|p| p.unwrap().to_string_lossy().into_owned()),
             )
             .compile("dilithium4_avx2");
+    }
 
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
+    // keccak lib
+    #[cfg(all(not(disable_avx2), not(target_os = "windows"), target_arch = "x86_64"))]
+    {
+        cc::Build::new()
+            .flag("-std=c99")
+            .flag("-march=native")
+            .flag("-mavx2")
+            .file(
+                common_dir
+                    .join("keccak4x")
+                    .join("KeccakP-1600-times4-SIMD256.c"),
+            )
+            .compile("keccak4x");
     }
 
     // Print enableing flag for AVX2 implementation

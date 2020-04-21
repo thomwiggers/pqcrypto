@@ -16,6 +16,7 @@ fn main() {
 
     cc::Build::new()
         .flag("-std=c99")
+        .flag("-march=native")
         .include("pqclean/common")
         .files(common_files.into_iter())
         .compile("pqclean_common");
@@ -26,6 +27,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -41,6 +43,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -57,6 +60,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -72,6 +76,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -88,6 +93,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -103,6 +109,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -119,6 +126,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -134,6 +142,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -150,6 +159,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -165,6 +175,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -181,6 +192,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(
@@ -196,6 +208,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder
             .flag("-std=c99")
+            .flag("-march=native")
             .include("pqclean/common")
             .include(target_dir)
             .files(

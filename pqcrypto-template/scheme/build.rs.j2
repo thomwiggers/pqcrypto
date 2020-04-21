@@ -18,6 +18,7 @@ fn main() {
 
     cc::Build::new()
         .flag("-std=c99")
+        .flag("-march=native")
         .include("pqclean/common")
         .files(common_files.into_iter())
         .compile("pqclean_common");
@@ -29,6 +30,7 @@ fn main() {
         let target_dir = Path::new("pqclean/crypto_{{ type }}/{{ scheme.name }}/{{ implementation }}");
         let scheme_files = glob::glob(target_dir.join("*.c").to_str().unwrap()).unwrap();
         builder.flag("-std=c99")
+               .flag("-march=native")
                .include("pqclean/common")
                .include(target_dir)
                .files(scheme_files.into_iter().map(|p| p.unwrap().to_string_lossy().into_owned()));
@@ -46,6 +48,7 @@ fn main() {
         let scheme_files = glob::glob(target_dir.join("*.[csS]").to_str().unwrap()).unwrap();
         cc::Build::new()
             .flag("-std=c99")
+            .flag("-march=native")
             .flag("-mavx2")
             .flag("-mbmi2")
             .flag("-mbmi")
@@ -55,18 +58,23 @@ fn main() {
             .include(target_dir)
             .files(scheme_files.into_iter().map(|p| p.unwrap().to_string_lossy().into_owned()))
             .compile("{{ scheme.name }}_{{ implementation }}");
-
-        //cc::Build::new()
-        //    .flag("-std=c99")
-        //    .flag("-mavx2")
-        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
-        //    .compile("keccak4x");
-
     }
     {% endif %}
     {% endfor %}
 
+
     {% if globals.have_avx2 %}
+    // keccak lib
+    #[{{ avx2_guard }}]
+    {
+        cc::Build::new()
+            .flag("-std=c99")
+            .flag("-march=native")
+            .flag("-mavx2")
+            .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
+            .compile("keccak4x");
+    }
+
     // Print enableing flag for AVX2 implementation
     #[{{ avx2_guard }}]
     {
