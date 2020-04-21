@@ -120,15 +120,11 @@ fn main() {
             )
             .compile("rainbowIa-cyclic_avx2");
 
-        cc::Build::new()
-            .flag("-std=c99")
-            .flag("-mavx2")
-            .file(
-                common_dir
-                    .join("keccak4x")
-                    .join("KeccakP-1600-times4-SIMD256.c"),
-            )
-            .compile("keccak4x");
+        //cc::Build::new()
+        //    .flag("-std=c99")
+        //    .flag("-mavx2")
+        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
+        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();

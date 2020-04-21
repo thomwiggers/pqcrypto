@@ -61,15 +61,11 @@ fn main() {
             )
             .compile("kyber512_avx2");
 
-        cc::Build::new()
-            .flag("-std=c99")
-            .flag("-mavx2")
-            .file(
-                common_dir
-                    .join("keccak4x")
-                    .join("KeccakP-1600-times4-SIMD256.c"),
-            )
-            .compile("keccak4x");
+        //cc::Build::new()
+        //    .flag("-std=c99")
+        //    .flag("-mavx2")
+        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
+        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -112,15 +108,11 @@ fn main() {
             )
             .compile("kyber768_avx2");
 
-        cc::Build::new()
-            .flag("-std=c99")
-            .flag("-mavx2")
-            .file(
-                common_dir
-                    .join("keccak4x")
-                    .join("KeccakP-1600-times4-SIMD256.c"),
-            )
-            .compile("keccak4x");
+        //cc::Build::new()
+        //    .flag("-std=c99")
+        //    .flag("-mavx2")
+        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
+        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -163,15 +155,11 @@ fn main() {
             )
             .compile("kyber1024_avx2");
 
-        cc::Build::new()
-            .flag("-std=c99")
-            .flag("-mavx2")
-            .file(
-                common_dir
-                    .join("keccak4x")
-                    .join("KeccakP-1600-times4-SIMD256.c"),
-            )
-            .compile("keccak4x");
+        //cc::Build::new()
+        //    .flag("-std=c99")
+        //    .flag("-mavx2")
+        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
+        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -214,15 +202,11 @@ fn main() {
             )
             .compile("kyber512-90s_avx2");
 
-        cc::Build::new()
-            .flag("-std=c99")
-            .flag("-mavx2")
-            .file(
-                common_dir
-                    .join("keccak4x")
-                    .join("KeccakP-1600-times4-SIMD256.c"),
-            )
-            .compile("keccak4x");
+        //cc::Build::new()
+        //    .flag("-std=c99")
+        //    .flag("-mavx2")
+        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
+        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -265,15 +249,11 @@ fn main() {
             )
             .compile("kyber768-90s_avx2");
 
-        cc::Build::new()
-            .flag("-std=c99")
-            .flag("-mavx2")
-            .file(
-                common_dir
-                    .join("keccak4x")
-                    .join("KeccakP-1600-times4-SIMD256.c"),
-            )
-            .compile("keccak4x");
+        //cc::Build::new()
+        //    .flag("-std=c99")
+        //    .flag("-mavx2")
+        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
+        //    .compile("keccak4x");
     }
     {
         let mut builder = cc::Build::new();
@@ -316,15 +296,11 @@ fn main() {
             )
             .compile("kyber1024-90s_avx2");
 
-        cc::Build::new()
-            .flag("-std=c99")
-            .flag("-mavx2")
-            .file(
-                common_dir
-                    .join("keccak4x")
-                    .join("KeccakP-1600-times4-SIMD256.c"),
-            )
-            .compile("keccak4x");
+        //cc::Build::new()
+        //    .flag("-std=c99")
+        //    .flag("-mavx2")
+        //    .file(common_dir.join("keccak4x").join("KeccakP-1600-times4-SIMD256.c"))
+        //    .compile("keccak4x");
     }
 
     // Print enableing flag for AVX2 implementation
