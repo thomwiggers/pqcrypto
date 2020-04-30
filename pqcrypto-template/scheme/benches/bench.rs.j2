@@ -1,0 +1,83 @@
+#![feature(test)]
+extern crate test;
+
+use test::{Bencher, black_box};
+
+{% for scheme in schemes %}
+mod bench_{{ scheme.name | nameize }} {
+    use super::*;
+
+    {% if type == 'kem' %}
+    use pqcrypto_{{ name }}::{{ scheme.name|nameize }}::{keypair, encapsulate, decapsulate};
+    {% else %}
+    use pqcrypto_{{ name }}::{{ scheme.name|nameize }}::{keypair, detached_sign, sign, open, verify_detached_signature};
+    {% endif %}
+
+
+    #[bench]
+    fn bench_keypair(b: &mut Bencher) {
+        b.iter(|| {
+            black_box(keypair())
+        });
+    }
+
+{% if type == 'kem' %}
+    #[bench]
+    fn bench_encaps(b: &mut Bencher) {
+        let (pk, _sk) = keypair();
+        b.iter(|| {
+            black_box(encapsulate(&pk))
+        });
+    }
+
+    #[bench]
+    fn bench_decaps(b: &mut Bencher) {
+        let (pk, sk) = keypair();
+        let (_ss, ct) = encapsulate(&pk);
+        b.iter(|| {
+            black_box(decapsulate(&ct, &sk))
+        });
+    }
+
+{% else %}
+    #[bench]
+    fn bench_sign(b: &mut Bencher) {
+        let msg = [0u8; 100];
+        let (_pk, sk) = keypair();
+        b.iter(|| {
+            black_box(sign(&msg, &sk))
+        });
+    }
+
+    #[bench]
+    fn bench_sign_detached(b: &mut Bencher) {
+        let msg = [0u8; 100];
+        let (_pk, sk) = keypair();
+        b.iter(|| {
+            black_box(detached_sign(&msg, &sk))
+        });
+    }
+
+    #[bench]
+    fn bench_open(b: &mut Bencher) {
+        let msg = [0u8; 100];
+        let (pk, sk) = keypair();
+        let signed_msg = sign(&msg, &sk);
+        b.iter(|| {
+            black_box(open(&signed_msg, &pk).unwrap())
+        });
+    }
+
+    #[bench]
+    fn bench_verify(b: &mut Bencher) {
+        let msg = [0u8; 100];
+        let (pk, sk) = keypair();
+        let signed_msg = detached_sign(&msg, &sk);
+        b.iter(|| {
+            black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap())
+        });
+    }
+{% endif %}
+}
+
+{% endfor %}

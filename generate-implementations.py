@@ -52,11 +52,13 @@ def generate_scheme(name, type, properties):
     """Schemes: list of dicts from yaml"""
     target_dir = f"pqcrypto-{name}"
     src_dir = os.path.join(target_dir, "src")
+    bench_dir = os.path.join(target_dir, "benches")
     try:
         shutil.rmtree(target_dir)
     except FileNotFoundError:
         pass
     os.makedirs(src_dir)
+    os.makedirs(bench_dir)
     try:
         os.symlink(os.path.join('..', 'pqclean'),
                    os.path.join(target_dir, 'pqclean'),
@@ -112,6 +114,13 @@ def generate_scheme(name, type, properties):
         name=name,
         type=type,
         notes=properties.get('notes', None),
+        schemes=properties['schemes'],
+    )
+
+    render_template(
+        target_dir, 'benches/bench.rs', 'scheme/benches/bench.rs.j2',
+        name=name,
+        type=type,
         schemes=properties['schemes'],
     )
 
