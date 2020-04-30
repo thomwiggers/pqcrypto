@@ -1,7 +1,7 @@
 #![feature(test)]
 extern crate test;
 
-use test::{black_box, Bencher};
+use test::Bencher;
 
 mod bench_mceliece348864 {
     use super::*;
@@ -10,20 +10,20 @@ mod bench_mceliece348864 {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -34,20 +34,20 @@ mod bench_mceliece348864f {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -58,20 +58,20 @@ mod bench_mceliece460896 {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -82,20 +82,20 @@ mod bench_mceliece460896f {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -106,20 +106,20 @@ mod bench_mceliece6688128 {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -130,20 +130,20 @@ mod bench_mceliece6688128f {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -154,20 +154,20 @@ mod bench_mceliece6960119 {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -178,20 +178,20 @@ mod bench_mceliece6960119f {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -202,20 +202,20 @@ mod bench_mceliece8192128 {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -226,19 +226,19 @@ mod bench_mceliece8192128f {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }

@@ -1,7 +1,7 @@
 #![feature(test)]
 extern crate test;
 
-use test::{black_box, Bencher};
+use test::Bencher;
 
 mod bench_sphincsharaka128ssimple {
     use super::*;
@@ -12,21 +12,21 @@ mod bench_sphincsharaka128ssimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -34,7 +34,7 @@ mod bench_sphincsharaka128ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -42,7 +42,7 @@ mod bench_sphincsharaka128ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -55,21 +55,21 @@ mod bench_sphincsharaka128srobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -77,7 +77,7 @@ mod bench_sphincsharaka128srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -85,7 +85,7 @@ mod bench_sphincsharaka128srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -98,21 +98,21 @@ mod bench_sphincsharaka128fsimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -120,7 +120,7 @@ mod bench_sphincsharaka128fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -128,7 +128,7 @@ mod bench_sphincsharaka128fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -141,21 +141,21 @@ mod bench_sphincsharaka128frobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -163,7 +163,7 @@ mod bench_sphincsharaka128frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -171,7 +171,7 @@ mod bench_sphincsharaka128frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -184,21 +184,21 @@ mod bench_sphincsharaka192ssimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -206,7 +206,7 @@ mod bench_sphincsharaka192ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -214,7 +214,7 @@ mod bench_sphincsharaka192ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -227,21 +227,21 @@ mod bench_sphincsharaka192srobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -249,7 +249,7 @@ mod bench_sphincsharaka192srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -257,7 +257,7 @@ mod bench_sphincsharaka192srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -270,21 +270,21 @@ mod bench_sphincsharaka192fsimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -292,7 +292,7 @@ mod bench_sphincsharaka192fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -300,7 +300,7 @@ mod bench_sphincsharaka192fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -313,21 +313,21 @@ mod bench_sphincsharaka192frobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -335,7 +335,7 @@ mod bench_sphincsharaka192frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -343,7 +343,7 @@ mod bench_sphincsharaka192frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -356,21 +356,21 @@ mod bench_sphincsharaka256ssimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -378,7 +378,7 @@ mod bench_sphincsharaka256ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -386,7 +386,7 @@ mod bench_sphincsharaka256ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -399,21 +399,21 @@ mod bench_sphincsharaka256srobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -421,7 +421,7 @@ mod bench_sphincsharaka256srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -429,7 +429,7 @@ mod bench_sphincsharaka256srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -442,21 +442,21 @@ mod bench_sphincsharaka256fsimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -464,7 +464,7 @@ mod bench_sphincsharaka256fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -472,7 +472,7 @@ mod bench_sphincsharaka256fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -485,21 +485,21 @@ mod bench_sphincsharaka256frobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -507,7 +507,7 @@ mod bench_sphincsharaka256frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -515,7 +515,7 @@ mod bench_sphincsharaka256frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -528,21 +528,21 @@ mod bench_sphincsshake256128ssimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -550,7 +550,7 @@ mod bench_sphincsshake256128ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -558,7 +558,7 @@ mod bench_sphincsshake256128ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -571,21 +571,21 @@ mod bench_sphincsshake256128srobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -593,7 +593,7 @@ mod bench_sphincsshake256128srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -601,7 +601,7 @@ mod bench_sphincsshake256128srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -614,21 +614,21 @@ mod bench_sphincsshake256128fsimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -636,7 +636,7 @@ mod bench_sphincsshake256128fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -644,7 +644,7 @@ mod bench_sphincsshake256128fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -657,21 +657,21 @@ mod bench_sphincsshake256128frobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -679,7 +679,7 @@ mod bench_sphincsshake256128frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -687,7 +687,7 @@ mod bench_sphincsshake256128frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -700,21 +700,21 @@ mod bench_sphincsshake256192ssimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -722,7 +722,7 @@ mod bench_sphincsshake256192ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -730,7 +730,7 @@ mod bench_sphincsshake256192ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -743,21 +743,21 @@ mod bench_sphincsshake256192srobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -765,7 +765,7 @@ mod bench_sphincsshake256192srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -773,7 +773,7 @@ mod bench_sphincsshake256192srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -786,21 +786,21 @@ mod bench_sphincsshake256192fsimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -808,7 +808,7 @@ mod bench_sphincsshake256192fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -816,7 +816,7 @@ mod bench_sphincsshake256192fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -829,21 +829,21 @@ mod bench_sphincsshake256192frobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -851,7 +851,7 @@ mod bench_sphincsshake256192frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -859,7 +859,7 @@ mod bench_sphincsshake256192frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -872,21 +872,21 @@ mod bench_sphincsshake256256ssimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -894,7 +894,7 @@ mod bench_sphincsshake256256ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -902,7 +902,7 @@ mod bench_sphincsshake256256ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -915,21 +915,21 @@ mod bench_sphincsshake256256srobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -937,7 +937,7 @@ mod bench_sphincsshake256256srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -945,7 +945,7 @@ mod bench_sphincsshake256256srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -958,21 +958,21 @@ mod bench_sphincsshake256256fsimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -980,7 +980,7 @@ mod bench_sphincsshake256256fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -988,7 +988,7 @@ mod bench_sphincsshake256256fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -1001,21 +1001,21 @@ mod bench_sphincsshake256256frobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -1023,7 +1023,7 @@ mod bench_sphincsshake256256frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -1031,7 +1031,7 @@ mod bench_sphincsshake256256frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -1044,21 +1044,21 @@ mod bench_sphincssha256128ssimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -1066,7 +1066,7 @@ mod bench_sphincssha256128ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -1074,7 +1074,7 @@ mod bench_sphincssha256128ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -1087,21 +1087,21 @@ mod bench_sphincssha256128srobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -1109,7 +1109,7 @@ mod bench_sphincssha256128srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -1117,7 +1117,7 @@ mod bench_sphincssha256128srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -1130,21 +1130,21 @@ mod bench_sphincssha256128fsimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -1152,7 +1152,7 @@ mod bench_sphincssha256128fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -1160,7 +1160,7 @@ mod bench_sphincssha256128fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -1173,21 +1173,21 @@ mod bench_sphincssha256128frobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -1195,7 +1195,7 @@ mod bench_sphincssha256128frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -1203,7 +1203,7 @@ mod bench_sphincssha256128frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -1216,21 +1216,21 @@ mod bench_sphincssha256192ssimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -1238,7 +1238,7 @@ mod bench_sphincssha256192ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -1246,7 +1246,7 @@ mod bench_sphincssha256192ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -1259,21 +1259,21 @@ mod bench_sphincssha256192srobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -1281,7 +1281,7 @@ mod bench_sphincssha256192srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -1289,7 +1289,7 @@ mod bench_sphincssha256192srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -1302,21 +1302,21 @@ mod bench_sphincssha256192fsimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -1324,7 +1324,7 @@ mod bench_sphincssha256192fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -1332,7 +1332,7 @@ mod bench_sphincssha256192fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -1345,21 +1345,21 @@ mod bench_sphincssha256192frobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -1367,7 +1367,7 @@ mod bench_sphincssha256192frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -1375,7 +1375,7 @@ mod bench_sphincssha256192frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -1388,21 +1388,21 @@ mod bench_sphincssha256256ssimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -1410,7 +1410,7 @@ mod bench_sphincssha256256ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -1418,7 +1418,7 @@ mod bench_sphincssha256256ssimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -1431,21 +1431,21 @@ mod bench_sphincssha256256srobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -1453,7 +1453,7 @@ mod bench_sphincssha256256srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -1461,7 +1461,7 @@ mod bench_sphincssha256256srobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -1474,21 +1474,21 @@ mod bench_sphincssha256256fsimple {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -1496,7 +1496,7 @@ mod bench_sphincssha256256fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -1504,7 +1504,7 @@ mod bench_sphincssha256256fsimple {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -1517,21 +1517,21 @@ mod bench_sphincssha256256frobust {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -1539,7 +1539,7 @@ mod bench_sphincssha256256frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -1547,6 +1547,6 @@ mod bench_sphincssha256256frobust {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }

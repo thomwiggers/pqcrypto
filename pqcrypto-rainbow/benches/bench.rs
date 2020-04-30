@@ -1,7 +1,7 @@
 #![feature(test)]
 extern crate test;
 
-use test::{black_box, Bencher};
+use test::Bencher;
 
 mod bench_rainbowiiicclassic {
     use super::*;
@@ -12,21 +12,21 @@ mod bench_rainbowiiicclassic {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -34,7 +34,7 @@ mod bench_rainbowiiicclassic {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -42,7 +42,7 @@ mod bench_rainbowiiicclassic {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -55,21 +55,21 @@ mod bench_rainbowiiiccyclic {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -77,7 +77,7 @@ mod bench_rainbowiiiccyclic {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -85,7 +85,7 @@ mod bench_rainbowiiiccyclic {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -98,21 +98,21 @@ mod bench_rainbowiiiccycliccompressed {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -120,7 +120,7 @@ mod bench_rainbowiiiccycliccompressed {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -128,7 +128,7 @@ mod bench_rainbowiiiccycliccompressed {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -141,21 +141,21 @@ mod bench_rainbowiaclassic {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -163,7 +163,7 @@ mod bench_rainbowiaclassic {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -171,7 +171,7 @@ mod bench_rainbowiaclassic {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -184,21 +184,21 @@ mod bench_rainbowiacyclic {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -206,7 +206,7 @@ mod bench_rainbowiacyclic {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -214,7 +214,7 @@ mod bench_rainbowiacyclic {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -227,21 +227,21 @@ mod bench_rainbowiacycliccompressed {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -249,7 +249,7 @@ mod bench_rainbowiacycliccompressed {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -257,7 +257,7 @@ mod bench_rainbowiacycliccompressed {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -270,21 +270,21 @@ mod bench_rainbowvcclassic {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -292,7 +292,7 @@ mod bench_rainbowvcclassic {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -300,7 +300,7 @@ mod bench_rainbowvcclassic {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -313,21 +313,21 @@ mod bench_rainbowvccyclic {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -335,7 +335,7 @@ mod bench_rainbowvccyclic {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -343,7 +343,7 @@ mod bench_rainbowvccyclic {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }
 
@@ -356,21 +356,21 @@ mod bench_rainbowvccycliccompressed {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_sign(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(sign(&msg, &sk)));
+        b.iter(|| sign(&msg, &sk));
     }
 
     #[bench]
     fn bench_sign_detached(b: &mut Bencher) {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
-        b.iter(|| black_box(detached_sign(&msg, &sk)));
+        b.iter(|| detached_sign(&msg, &sk));
     }
 
     #[bench]
@@ -378,7 +378,7 @@ mod bench_rainbowvccycliccompressed {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
-        b.iter(|| black_box(open(&signed_msg, &pk).unwrap()));
+        b.iter(|| open(&signed_msg, &pk).unwrap());
     }
 
     #[bench]
@@ -386,6 +386,6 @@ mod bench_rainbowvccycliccompressed {
         let msg = [0u8; 100];
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
-        b.iter(|| black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap()));
+        b.iter(|| verify_detached_signature(&signed_msg, &msg, &pk).unwrap());
     }
 }

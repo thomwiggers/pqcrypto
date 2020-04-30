@@ -1,7 +1,7 @@
 #![feature(test)]
 extern crate test;
 
-use test::{Bencher, black_box};
+use test::Bencher;
 
 {% for scheme in schemes %}
 mod bench_{{ scheme.name | nameize }} {
@@ -17,7 +17,7 @@ mod bench_{{ scheme.name | nameize }} {
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
         b.iter(|| {
-            black_box(keypair())
+            keypair()
         });
     }
 
@@ -26,7 +26,7 @@ mod bench_{{ scheme.name | nameize }} {
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
         b.iter(|| {
-            black_box(encapsulate(&pk))
+            encapsulate(&pk)
         });
     }
 
@@ -35,7 +35,7 @@ mod bench_{{ scheme.name | nameize }} {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
         b.iter(|| {
-            black_box(decapsulate(&ct, &sk))
+            decapsulate(&ct, &sk)
         });
     }
 
@@ -45,7 +45,7 @@ mod bench_{{ scheme.name | nameize }} {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
         b.iter(|| {
-            black_box(sign(&msg, &sk))
+            sign(&msg, &sk)
         });
     }
 
@@ -54,7 +54,7 @@ mod bench_{{ scheme.name | nameize }} {
         let msg = [0u8; 100];
         let (_pk, sk) = keypair();
         b.iter(|| {
-            black_box(detached_sign(&msg, &sk))
+            detached_sign(&msg, &sk)
         });
     }
 
@@ -64,7 +64,7 @@ mod bench_{{ scheme.name | nameize }} {
         let (pk, sk) = keypair();
         let signed_msg = sign(&msg, &sk);
         b.iter(|| {
-            black_box(open(&signed_msg, &pk).unwrap())
+            open(&signed_msg, &pk).unwrap()
         });
     }
 
@@ -74,7 +74,7 @@ mod bench_{{ scheme.name | nameize }} {
         let (pk, sk) = keypair();
         let signed_msg = detached_sign(&msg, &sk);
         b.iter(|| {
-            black_box(verify_detached_signature(&signed_msg, &msg, &pk).unwrap())
+            verify_detached_signature(&signed_msg, &msg, &pk).unwrap()
         });
     }
 {% endif %}

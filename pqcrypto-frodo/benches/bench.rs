@@ -1,7 +1,7 @@
 #![feature(test)]
 extern crate test;
 
-use test::{black_box, Bencher};
+use test::Bencher;
 
 mod bench_frodokem640shake {
     use super::*;
@@ -10,20 +10,20 @@ mod bench_frodokem640shake {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -34,20 +34,20 @@ mod bench_frodokem640aes {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -58,20 +58,20 @@ mod bench_frodokem976aes {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -82,20 +82,20 @@ mod bench_frodokem976shake {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -106,20 +106,20 @@ mod bench_frodokem1344aes {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
 
@@ -130,19 +130,19 @@ mod bench_frodokem1344shake {
 
     #[bench]
     fn bench_keypair(b: &mut Bencher) {
-        b.iter(|| black_box(keypair()));
+        b.iter(|| keypair());
     }
 
     #[bench]
     fn bench_encaps(b: &mut Bencher) {
         let (pk, _sk) = keypair();
-        b.iter(|| black_box(encapsulate(&pk)));
+        b.iter(|| encapsulate(&pk));
     }
 
     #[bench]
     fn bench_decaps(b: &mut Bencher) {
         let (pk, sk) = keypair();
         let (_ss, ct) = encapsulate(&pk);
-        b.iter(|| black_box(decapsulate(&ct, &sk)));
+        b.iter(|| decapsulate(&ct, &sk));
     }
 }
